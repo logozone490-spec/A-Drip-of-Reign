@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Drip of Reign | Handcrafted Drinks & Small Bites</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-deep: #030b08;
+      --primary-color: #061c14;
+      --primary-light: #0b3123;
+      --accent-gold: #dfb843;
+      --accent-gold-light: #f7e9b0;
+      --accent-gold-dark: #b8952b;
+      --text-main: #f8f9fa;
+      --text-muted: #a3b8b0;
+      --card-bg: rgba(11, 49, 35, 0.45);
+      --border-gold: rgba(223, 184, 67, 0.35);
+      --shadow-luxury: 0 20px 40px rgba(0, 0, 0, 0.6);
+      --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .brand-logo span, .hero h1, .creative-badge {
+      font-family: 'Great Vibes', cursive;
+      letter-spacing: 2px;
+    }
+
+    h2, h3 {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      width: min(1240px, 92%);
+      margin: 0 auto;
+    }
+
+    /* --- HEADER & NAVIGATION --- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(3, 11, 8, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 14px 0;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-frame {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-gold);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-color);
+      box-shadow: 0 0 20px rgba(223, 184, 67, 0.3);
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-logo span {
+      color: var(--accent-gold-light);
+      font-size: 28px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: var(--transition);
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent-gold);
+      text-shadow: 0 0 10px rgba(223, 184, 67, 0.4);
+    }
+
+    .btn-nav-cta {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      color: var(--bg-deep) !important;
+      padding: 10px 26px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 20px rgba(223, 184, 67, 0.3);
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(223, 184, 67, 0.6);
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      position: relative;
+      min-height: 95vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, rgba(11, 49, 35, 0.6) 0%, rgba(3, 11, 8, 0.95) 100%),
+                  url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
+      text-align: center;
+      padding: 160px 0 100px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      z-index: 2;
+    }
+
+    .hero-logo-large {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      margin: 0 auto 30px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(223, 184, 67, 0.5);
+      background: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulseGlow 4s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 25px rgba(223, 184, 67, 0.3); }
+      100% { box-shadow: 0 0 50px rgba(223, 184, 67, 0.7); }
+    }
+
+    .hero-logo-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .creative-badge {
+      display: inline-block;
+      background: rgba(223, 184, 67, 0.1);
+      border: 1px solid var(--accent-gold);
+      padding: 6px 22px;
+      border-radius: 30px;
+      color: var(--accent-gold-light);
+      font-size: 20px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 8vw, 85px);
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 38px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-gold {
+      background: var(--accent-gold);
+      color: var(--bg-deep);
+      box-shadow: 0 6px 25px rgba(223, 184, 67, 0.35);
+      border: none;
+    }
+
+    .btn-gold:hover {
+      background: var(--accent-gold-light);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(223, 184, 67, 0.6);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--accent-gold);
+      color: var(--accent-gold);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-gold);
+      color: var(--bg-deep);
+      transform: translateY(-4px);
+    }
+
+    /* --- SECTION HEADINGS --- */
+    .section-header {
+      text-align: center;
+      margin: 100px 0 60px;
+    }
+
+    .section-header h2 {
+      font-size: 42px;
+      color: var(--accent-gold);
+      margin-bottom: 14px;
+    }
+
+    .section-header .line {
+      width: 70px;
+      height: 3px;
+      background: var(--accent-gold);
+      margin: 0 auto;
+      border-radius: 2px;
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    /* --- MENU SECTION --- */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 35px;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-luxury);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-gold);
+      opacity: 0.6;
+      transition: var(--transition);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-gold);
+      background: rgba(11, 49, 35, 0.75);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(223, 184, 67, 0.2);
+    }
+
+    .menu-card:hover::before {
+      opacity: 1;
+      width: 6px;
+    }
+
+    .menu-card img {
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-gold);
+      flex-shrink: 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    .menu-info h3 {
+      color: var(--accent-gold-light);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .menu-info p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .menu-price {
+      color: var(--accent-gold);
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    /* --- INTERACTIVE DRINK BUILDER SECTION --- */
+    .builder-section {
+      background: linear-gradient(to bottom, var(--primary-color), var(--bg-deep));
+      padding: 100px 0;
+      margin-top: 100px;
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .builder-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .builder-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .builder-options h3 {
+      color: var(--accent-gold);
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .builder-group {
+      margin-bottom: 25px;
+    }
+
+    .builder-group label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .options-grid {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .option-chip {
+      background: rgba(3, 11, 8, 0.6);
+      border: 1px solid var(--border-gold);
+      padding: 10px 20px;
+      border-radius: 30px;
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 13px;
+      transition: var(--transition);
+    }
+
+    .option-chip:hover, .option-chip.selected {
+      background: var(--accent-gold);
+      color: var(--bg-deep);
+      border-color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .builder-preview {
+      background: rgba(3, 11, 8, 0.7);
+      border: 2px dashed var(--accent-gold);
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .builder-preview h4 {
+      color: var(--accent-gold-light);
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .builder-preview p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    /* --- SERVICES SECTION --- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+    }
+
+    .service-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      padding: 45px 35px;
+      border-radius: 24px;
+      text-align: center;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+    }
+
+    .service-box img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-gold);
+      margin-bottom: 25px;
+      box-shadow: 0 0 15px rgba(223, 184, 67, 0.3);
+    }
+
+    .service-box h3 {
+      color: var(--accent-gold);
+      font-size: 23px;
+      margin-bottom: 14px;
+    }
+
+    .service-box p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* --- GALLERY SECTION --- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      height: 300px;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.12);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 30px 25px;
+      background: linear-gradient(to top, rgba(3, 11, 8, 0.98), transparent);
+    }
+
+    .gallery-overlay h3 {
+      color: var(--accent-gold-light);
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .gallery-overlay p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* --- BOOKING MODAL --- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 11, 8, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--primary-color);
+      border: 1px solid var(--accent-gold);
+      padding: 45px;
+      border-radius: 25px;
+      width: min(520px, 92%);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: var(--accent-gold);
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .modal-content h3 {
+      color: var(--accent-gold);
+      margin-bottom: 25px;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(3, 11, 8, 0.7);
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      color: var(--text-main);
+      font-size: 15px;
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(223, 184, 67, 0.3);
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background: var(--bg-deep);
+      text-align: center;
+      padding: 80px 0 50px;
+      border-top: 1px solid var(--border-gold);
+    }
+
+    .footer-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 25px;
+      overflow: hidden;
+      border: 2px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-color);
+      box-shadow: 0 0 20px rgba(223, 184, 67, 0.3);
+    }
+
+    .footer-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer h3 {
+      color: var(--accent-gold);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-frame">
+          <img src="https://i.postimg.cc/D097GmvB/Whats-App-Image-2026-09-25-at-11-00-21-AM.jpg" alt="A Drip of Reign Logo" />
+        </div>
+        <span>A Drip of Reign</span>
+      </a>
+      
+      <nav>
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#builder">Drink Builder</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><button class="btn-nav-cta" onclick="openModal()">Book Event</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-logo-large">
+        <img src="https://i.postimg.cc/D097GmvB/Whats-App-Image-2026-09-25-at-11-00-21-AM.jpg" alt="A Drip of Reign Logo" />
+      </div>
+      <div class="creative-badge">Handcrafted Elegance</div>
+      <h1>A Drip of Reign</h1>
+      <p>Handcrafted drinks, sweet treats, and premium mobile catering experiences tailored for your most exclusive occasions.</p>
+      
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-gold">Explore Menu</a>
+        <button class="btn btn-outline" onclick="openModal()">Book Private Event</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="container menu-section" id="menu">
+    <div class="section-header">
+      <h2>The Exclusive Menu</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80" alt="Drink" />
+        <div class="menu-info">
+          <h3>Signature Lemon Mint</h3>
+          <p>Freshly squeezed lemon infused with organic mint leaves.</p>
+          <div class="menu-price">$6.00</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=300&q=80" alt="Sweet" />
+        <div class="menu-info">
+          <h3>Gourmet Cake Pops</h3>
+          <p>Delicate chocolate spheres coated in rich glaze.</p>
+          <div class="menu-price">$4.50</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=80" alt="Coffee" />
+        <div class="menu-info">
+          <h3>Specialty Cold Brew</h3>
+          <p>Steeped for 24 hours to achieve a bold finish.</p>
+          <div class="menu-price">$7.00</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=300&q=80" alt="Berry" />
+        <div class="menu-info">
+          <h3>Royal Berry Infusion</h3>
+          <p>A refreshing mix of seasonal berries and sparkling water.</p>
+          <div class="menu-price">$6.50</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DRINK BUILDER SECTION -->
+  <section class="builder-section" id="builder">
+    <div class="container">
+      <div class="section-header" style="margin-top: 0;">
+        <h2>Custom Drink Experience</h2>
+        <div class="line"></div>
+      </div>
+
+      <div class="builder-container">
+        <div class="builder-options">
+          <h3>Craft Your Signature Blend</h3>
+          
+          <div class="builder-group">
+            <label>1. Select Base</label>
+            <div class="options-grid" id="baseOptions">
+              <div class="option-chip selected" onclick="selectOption(this, 'base')">Sparkling Water</div>
+              <div class="option-chip" onclick="selectOption(this, 'base')">Cold Brew</div>
+              <div class="option-chip" onclick="selectOption(this, 'base')">Lemonade</div>
+            </div>
+          </div>
+
+          <div class="builder-group">
+            <label>2. Choose Infusion</label>
+            <div class="options-grid" id="infusionOptions">
+              <div class="option-chip selected" onclick="selectOption(this, 'infusion')">Organic Mint</div>
+              <div class="option-chip" onclick="selectOption(this, 'infusion')">Royal Berry</div>
+              <div class="option-chip" onclick="selectOption(this, 'infusion')">Vanilla Bean</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-preview">
+          <h4>Your Masterpiece</h4>
+          <p id="builderResult">Base: Sparkling Water + Infusion: Organic Mint</p>
+          <button class="btn btn-gold" onclick="openModal()">Order This Custom Drink</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="container services-section" id="services" style="padding-top: 80px;">
+    <div class="section-header">
+      <h2>Exclusive Event Services</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-box">
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=300&q=80" alt="Kids Party" />
+        <h3>Kids Parties & Schools</h3>
+        <p>100% caffeine-free, fun, and delicious celebration packages designed specifically for young guests.</p>
+      </div>
+
+      <div class="service-box">
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=300&q=80" alt="Corporate" />
+        <h3>Corporate & Private Catering</h3>
+        <p>Elevate your business gatherings and private celebrations with our high-end luxury mobile beverage bars.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="container" id="gallery" style="padding: 60px 0;">
+    <div class="section-header">
+      <h2>Visual Highlights</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Highlight 1" />
+        <div class="gallery-overlay">
+          <h3>Handcrafted Lemonades</h3>
+          <p>Unique flavors tailored for every taste.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=85" alt="Highlight 2" />
+        <div class="gallery-overlay">
+          <h3>Sweet Treats</h3>
+          <p>Custom dessert boxes for grand events.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Highlight 3" />
+        <div class="gallery-overlay">
+          <h3>Cold Brew Setup</h3>
+          <p>Professional setup for premium experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+      <h3>Book Your Event</h3>
+      <form onsubmit="handleBooking(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" required placeholder="Enter your name" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" required placeholder="Enter your phone number" />
+        </div>
+        <div class="form-group">
+          <label>Event Type</label>
+          <select>
+            <option>Kids Party / School Event</option>
+            <option>Corporate Catering</option>
+            <option>Private Celebration</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Event Date</label>
+          <input type="date" required />
+        </div>
+        <button type="submit" class="btn btn-gold" style="width: 100%;">Confirm Booking Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="https://i.postimg.cc/D097GmvB/Whats-App-Image-2026-09-25-at-11-00-21-AM.jpg" alt="A Drip of Reign Logo" />
+      </div>
+      <h3>A Drip of Reign</h3>
+      <p>© 2026 A Drip of Reign. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    let selectedBase = 'Sparkling Water';
+    let selectedInfusion = 'Organic Mint';
+
+    function selectOption(element, type) {
+      const parent = element.parentElement;
+      parent.querySelectorAll('.option-chip').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+
+      if(type === 'base') {
+        selectedBase = element.innerText;
+      } else {
+        selectedInfusion = element.innerText;
+      }
+
+      document.getElementById('builderResult').innerText = `Base: ${selectedBase} + Infusion: ${selectedInfusion}`;
+    }
+
+    function openModal() {
+      document.getElementById('bookingModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+    }
+
+    function handleBooking(e) {
+      e.preventDefault();
+      alert('Thank you! Your booking request has been submitted successfully.');
+      closeModal();
+    }
+  </script>
+
+</body>
+</html>
